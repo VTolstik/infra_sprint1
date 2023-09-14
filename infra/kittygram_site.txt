@@ -1,0 +1,5 @@
+IP: 158.160.30.39;
+name_taski: https://taski-ru.sytes.net;
+name_kittygram: https://kittyru.sytes.net;
+login: admin2;
+password: adminkitty; 
