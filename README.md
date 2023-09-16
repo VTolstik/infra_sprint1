@@ -6,12 +6,12 @@
 ## Установка проекта на компьютер 
  - Необходимо клонировать репозиторий `git clone https://github.com/VTolstik/infra_sprint1.git`
  - перейти в директорию с клонированным репозиторием
- - создать и активировать виртуальное окружение `python3 -m venv venv` `source venv/bin/activate` 
+ - создать и активировать виртуальное окружение `python3 -m venv venv` `source venv/bin/activate` (для windows `python -m venv venv` `source venv/scripts/activate`)
  - установить зависимости `pip install -r requirements.txt`
  - выполнить миграции `python manage.py migrate`
  - создать суперюзера `python manage.py createsuperuser`
- - в директории /backend/kittygram_backend/ создать файл .env 
- - в файл .env заполнить SECRET_KEY и т.д. по аналогии с примером .env.example
+ - в директории проекта создать файл _.env_
+ - в файл .env заполнить SECRET_KEY и т.д. по аналогии с примером _.env.example_ в директории проекта
 
 # Деплой проекта на удаленный сервер
 
@@ -20,7 +20,7 @@
 - если Git не установлен - установить командой `sudo apt install git`
 - находясь на сервере сгенерировать SSH-ключи `ssh-keygen`
 - сохранить открытый ключ в вашем аккаунте на GitHub. Для этого вывести ключ в терминал командой `cat .ssh/id_rsa.pub`. Скопировать ключ от символов ssh-rsa, включительно, и до конца. Добавить это ключ к вашему аккаунту на GitHub.
-- клонировать проект с GitHub на сервер: `git clone git@github.com:Ваш_аккаунт/<Имя проекта>.git`
+- клонировать проект с GitHub на сервер: `git clone git@github.com:VTolstik/infra_sprint1.git`
 
 ## Запуск backend проекта на сервере
 - Установить пакетный менеджер и утилиту для создания виртуального окружения `sudo apt install python3-pip python3-venv -y`
@@ -28,8 +28,8 @@
 - установить зависимости `pip install -r requirements.txt`
 - выполнить миграции `python manage.py migrate`
 - создать суперюзера `python manage.py createsuperuser`
-- в директории /backend/kittygram_backend/ создать файл .env 
-- в файл .env заполнить SECRET_KEY и т.д. по аналогии с примером .env.example
+- в директории проекта создать файл _.env_
+- в файл .env заполнить SECRET_KEY и т.д. по аналогии с примером _.env.example_ в директории проекта
 
 ## Запуск frontend проекта на сервере
 - установить на сервер `Node.js`   командами
@@ -126,7 +126,7 @@
 - Скопировать директорию _static_backend/_ в директорию _/var/www/<имя_проекта>/_
 
 ## Добавление доменного имени в настройки Django
-- в файле _settings.py_ добавить в список `ALLOWED_HOSTS` доменное имя: 
+- в файле _.env_ добавить в список `ALLOWED_HOSTS` доменное имя: 
 	ALLOWED_HOSTS = ['ip_адрес_вашего_сервера', '127.0.0.1', 'localhost', 'ваш-домен'] 
 - сохранить изменения и перезапустить gunicorn `sudo systemctl restart gunicorn`
 - внести изменения в конфигурацию Nginx. Открыть конфигурационный файл командой: `sudo nano /etc/nginx/sites-enabled/default`

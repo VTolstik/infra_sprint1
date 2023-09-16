@@ -4,13 +4,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv("SECRET_KEY", "123456789")
+
+DEBUG = os.getenv("DEBUG", "False").lower() in ('true', '1', 't')
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-DEBUG = False
-
-ALLOWED_HOSTS = ['158.160.30.39', '127.0.0.1', 'localhost', 'kittyru.sytes.net']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -106,7 +106,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated', 
+        'rest_framework.permissions.IsAuthenticated',
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
